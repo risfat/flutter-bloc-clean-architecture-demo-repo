@@ -74,22 +74,21 @@ class GitHubReposScreen extends StatelessWidget {
                 return _buildLoadingIndicator();
               }
               final repo = state.repos[index];
-              return AnimationConfiguration.staggeredList(
-                position: index,
-                duration: const Duration(milliseconds: 375),
-                child: SlideAnimation(
-                  verticalOffset: 50.0,
-                  child: FadeInAnimation(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                GitHubRepoDetailScreen(repo: repo),
-                          ),
-                        );
-                      },
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GitHubRepoDetailScreen(repo: repo),
+                    ),
+                  );
+                },
+                child: AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(milliseconds: 375),
+                  child: SlideAnimation(
+                    verticalOffset: 50.0,
+                    child: FadeInAnimation(
                       child: GitHubRepoCard(repo: repo),
                     ),
                   ),
