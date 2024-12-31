@@ -1,6 +1,17 @@
-# Flutter Bloc Clean Architecture Boilerplate
+# Github Repos
 
-This is a Flutter project boilerplate that adheres to the principles of Clean Architecture. It is designed to help you jumpstart your Flutter projects by providing a structured and organized project setup. This boilerplate utilizes the BLoC state management pattern, GetIt for dependency injection, and Freezed for code generation.
+This is a Flutter project that adheres to the principles of Clean Architecture.  This project utilizes the BLoC state management pattern, GetIt for dependency injection, and Freezed for code generation.
+
+## Project Overview
+
+This project demonstrates a practical implementation of Clean Architecture in Flutter by showcasing a GitHub repository search feature. It allows users to search for Flutter/Dart repositories on GitHub and displays the results in a list.
+
+### Key Features:
+- Search GitHub repositories with Flutter/Dart as the primary language
+- Display repository details including name, description, and star count
+- Implement pagination for loading more results
+- Utilize Clean Architecture for separation of concerns
+- Employ BLoC pattern for state management
 
 ## Project Structure
 
@@ -12,64 +23,30 @@ The project follows a well-defined directory structure to keep your code organiz
 
     - **Data**: Responsible for data handling.
 
-        - **Datasource**: Data sources, such as API clients or databases.
+        - **Datasource**: Data sources, such as the GitHub API client.
 
-        - **Model**: Data models that represent your application's data.
+        - **Model**: Data models that represent GitHub repositories.
 
-        - **Repository**: Data repositories, which abstract the data source.
+        - **Repository**: Data repositories, which abstract the GitHub API data source.
 
     - **Domain**: Contains the core business logic.
 
-        - **Entity**: Business entities or domain models.
+        - **Entity**: Business entities like GitHubRepo.
 
-        - **Repository**: Interfaces that define how data is accessed in the domain layer.
+        - **Repository**: Interfaces that define how GitHub data is accessed.
 
-        - **Usecase**: Use cases that represent the application's business operations.
+        - **Usecase**: Use cases for searching GitHub repositories.
 
     - **Presentation**: Handles the user interface and interaction.
 
-        - **Bloc**: BLoC classes responsible for managing the state of your application.
+        - **Bloc**: BLoC classes responsible for managing the state of the GitHub repository search.
 
-        - **Cubit**: Cubit classes for more lightweight state management.
+        - **Page**: Flutter pages for displaying the search interface and results.
 
-        - **Page**: Flutter pages/screens.
-
-        - **Widget**: Reusable UI components.
+        - **Widget**: Reusable UI components for displaying repository items.
 
     - **Utilities**: Helper classes and utilities for the application.
 
 - **Injection.dart**: Dependency injection setup using GetIt.
 
 - **Main.dart**: The entry point of the Flutter application.
-
-## Getting Started
-
-1. Clone this repository to your local machine:
-
-   ```shell
-   git clone https://github.com/risfat/flutter-bloc-clean-architecture-boilerplate
-
-2. Navigate to the project directory:
-
-   ```shell
-   cd flutter-bloc-clean-architecture-boilerplate
-
-3. Install dependencies using Flutter's package manager:
-
-   ```shell
-    flutter pub get
-   
-You can now start building your application using this clean architecture boilerplate.
-
-## Features
-- Structured and organized project setup.
-- Clean Architecture pattern.
-- BLoC state management.
-- GetIt for dependency injection.
-- Freezed for code generation.
-
-## Contributing
-Feel free to contribute to this project by submitting issues or pull requests. If you have any suggestions or improvements, we welcome your contributions.
-
-
-Happy coding! 🚀
