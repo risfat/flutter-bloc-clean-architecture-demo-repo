@@ -5,7 +5,6 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../../../../common/widgets/custom_error_widget.dart';
 import '../blocs/github_repos_bloc.dart';
 import '../widgets/github_repo_card.dart';
-import 'github_repo_detail_screen.dart';
 
 class GitHubReposScreen extends StatelessWidget {
   const GitHubReposScreen({super.key});
@@ -74,23 +73,13 @@ class GitHubReposScreen extends StatelessWidget {
                 return _buildLoadingIndicator();
               }
               final repo = state.repos[index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GitHubRepoDetailScreen(repo: repo),
-                    ),
-                  );
-                },
-                child: AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    verticalOffset: 50.0,
-                    child: FadeInAnimation(
-                      child: GitHubRepoCard(repo: repo),
-                    ),
+              return AnimationConfiguration.staggeredList(
+                position: index,
+                duration: const Duration(milliseconds: 375),
+                child: SlideAnimation(
+                  verticalOffset: 50.0,
+                  child: FadeInAnimation(
+                    child: GitHubRepoCard(repo: repo),
                   ),
                 ),
               );

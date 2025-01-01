@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../domain/models/github_repo.dart';
+import '../screens/github_repo_detail_screen.dart';
 
 class GitHubRepoCard extends StatelessWidget {
   final GitHubRepo repo;
@@ -18,7 +19,12 @@ class GitHubRepoCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () {
-          // Handle tap if needed
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => GitHubRepoDetailScreen(repo: repo),
+            ),
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(16),
